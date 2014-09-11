@@ -27,13 +27,13 @@ while True:
         break
 
 while True:
-    QUALIFIED = raw_input("Are you pre-qualified for this loan? ".lower())
+    QUALIFIED = raw_input("Are you pre-qualified for this loan? ").lower()
     if QUALIFIED not in ['yes', 'y', 'no', 'n']:
         print "Sorry, please answer 'yes' or 'no'. "
     else:
         break
 
-LOAN = True
+TOTAL = True
 
 if PRINCIPAL < 200000:
     if YEARS < 16:
@@ -52,7 +52,7 @@ if PRINCIPAL < 200000:
         else:
             R = .0639
     else:
-        LOAN = False
+        TOTAL = None
         R = 1
 elif PRINCIPAL < 1000000:
     if YEARS < 16:
@@ -69,29 +69,31 @@ elif PRINCIPAL < 1000000:
         if "y" in QUALIFIED:
             R = .0466
         else:
-            LOAN = False
+            TOTAL = None
             R = 1
     else:
-        LOAN = False
+        TOTAL = None
         R = 1
 else:
     if YEARS < 16:
         if "y" in QUALIFIED:
             R = .0205
         else:
-            LOAN = False
+            TOTAL = None
             R = 1
     elif YEARS < 21:
         if "y" in QUALIFIED:
             R = .0262
         else:
-            LOAN = False
+            TOTAL = None
             R = 1
     else:
-        LOAN = False
+        TOTAL = None
         R = 1
 
-TOTAL = int(round(Decimal(PRINCIPAL * ((1 + R/12)**(12 * YEARS)))))
+if TOTAL:
+    TOTAL = int(round(PRINCIPAL * ((1 + Decimal(R/12))**(12 * YEARS))))
+
 
 REPORT = """
 Loan Report for: {0}
@@ -104,7 +106,7 @@ Loan Report for: {0}
 
 WIDTH = 20
 
-if LOAN:
+if TOTAL:
     print REPORT.format(NAME.title(),
                         ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
                         (str(YEARS) + 'yrs').rjust(WIDTH),

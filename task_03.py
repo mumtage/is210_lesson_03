@@ -24,5 +24,5 @@ else:
         HIGHLIGHT = raw_input("Now choose a highlight color: "
                               "Fractal White or Not White? ")
 print ("You've chosen a base color of {0}, "
-      "accented with {1} "
-      "and highlighted with {2}!".format(BASE, ACCENT, HIGHLIGHT))
+       "accented with {1} "
+       "and highlighted with {2}!".format(BASE, ACCENT, HIGHLIGHT))

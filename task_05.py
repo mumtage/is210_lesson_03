@@ -106,13 +106,13 @@ WIDTH = 20
 
 if LOAN:
     print REPORT.format(NAME.title(),
-          ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
-          (str(YEARS) + 'yrs').rjust(WIDTH),
-          QUALIFIED.title().rjust(WIDTH),
-          ('$' + str('{:,}'.format(TOTAL))).rjust(WIDTH))
+                        ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
+                        (str(YEARS) + 'yrs').rjust(WIDTH),
+                        QUALIFIED.title().rjust(WIDTH),
+                        ('$' + str('{:,}'.format(TOTAL))).rjust(WIDTH))
 else:
     print REPORT.format(NAME.title(),
-          ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
-          (str(YEARS) + 'yrs').rjust(WIDTH),
-          QUALIFIED.title().rjust(WIDTH),
-          'None'.rjust(WIDTH))
+                        ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
+                        (str(YEARS) + 'yrs').rjust(WIDTH),
+                        QUALIFIED.title().rjust(WIDTH),
+                        'None'.rjust(WIDTH))

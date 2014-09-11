@@ -2,34 +2,34 @@
 # -*- coding: utf-8 -*-
 """usury"""
 
-from decimal import *
-import sys
-if sys.version[0] == "2" : input = raw_input
 
-NAME = input("What is your name? ")
+from decimal import Decimal
+
+NAME = raw_input("What is your name? ")
 
 while True:
-    PRINCIPAL = input("What is the amount of your principal (the amount being borrowed)? ")
+    PRINCIPAL = raw_input("What is the amount of your principal "
+                          "(the amount being borrowed)? ")
     try:
         PRINCIPAL = int(PRINCIPAL)
     except:
-        print("Please enter the amount as a integer...")
+        print "Please enter the amount as a integer..."
     else:
         break
 
 while True:
-    YEARS = input("For how many years is this loan being borrowed? ")
+    YEARS = raw_input("For how many years is this loan being borrowed? ")
     try:
         YEARS = int(YEARS)
     except:
-        print("Please enter in the form of an integer...")
+        print "Please enter in the form of an integer..."
     else:
         break
-    
+
 while True:
-    QUALIFIED = input("Are you pre-qualified for this loan? ")
+    QUALIFIED = raw_input("Are you pre-qualified for this loan? ")
     if QUALIFIED.lower() not in ['yes', 'y', 'no', 'n']:
-        print("Sorry, please answer 'yes' or 'no'. ")
+        print "Sorry, please answer 'yes' or 'no'. "
     else:
         break
 
@@ -52,8 +52,8 @@ if PRINCIPAL < 200000:
         else:
             R = .0639
     else:
-            LOAN = False
-            R = 1
+        LOAN = False
+        R = 1
 elif PRINCIPAL < 1000000:
     if YEARS < 16:
         if "y" in QUALIFIED:
@@ -72,8 +72,8 @@ elif PRINCIPAL < 1000000:
             LOAN = False
             R = 1
     else:
-            LOAN = False
-            R = 1
+        LOAN = False
+        R = 1
 else:
     if YEARS < 16:
         if "y" in QUALIFIED:
@@ -88,10 +88,10 @@ else:
             LOAN = False
             R = 1
     else:
-            LOAN = False
-            R = 1
+        LOAN = False
+        R = 1
 
-TOTAL = Decimal(PRINCIPAL * ((1 + R/12)**(12 * YEARS)))
+TOTAL = int(round(Decimal(PRINCIPAL * ((1 + R/12)**(12 * YEARS))),0))
 
 REPORT = """
 Loan Report for: {0}
@@ -105,6 +105,14 @@ Loan Report for: {0}
 WIDTH = 20
 
 if LOAN:
-    print REPORT.format(NAME.title(), ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH), (str(YEARS) + 'yrs').rjust(WIDTH), QUALIFIED.title().rjust(WIDTH), ('$' + str('{:,}'.format(round(TOTAL)))).rjust(WIDTH))
+    print REPORT.format(NAME.title(),
+          ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
+          (str(YEARS) + 'yrs').rjust(WIDTH),
+          QUALIFIED.title().rjust(WIDTH),
+          ('$' + str('{:,}'.format(TOTAL))).rjust(WIDTH))
 else:
-    print REPORT.format(NAME.title(), ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH), (str(YEARS) + 'yrs').rjust(WIDTH), QUALIFIED.title().rjust(WIDTH), 'None'.rjust(WIDTH))
+    print REPORT.format(NAME.title(),
+          ('$' + str('{:,}'.format(PRINCIPAL))).rjust(WIDTH),
+          (str(YEARS) + 'yrs').rjust(WIDTH),
+          QUALIFIED.title().rjust(WIDTH),
+          'None'.rjust(WIDTH))

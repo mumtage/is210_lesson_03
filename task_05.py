@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""pppppainting!"""
+"""usury"""
 
 from decimal import *
 import sys

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""pppppainting!"""
+"""snooooze!"""
 
 import sys
 if sys.version[0] == "2" : input = raw_input

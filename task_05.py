@@ -27,8 +27,8 @@ while True:
         break
 
 while True:
-    QUALIFIED = raw_input("Are you pre-qualified for this loan? ")
-    if QUALIFIED.lower() not in ['yes', 'y', 'no', 'n']:
+    QUALIFIED = raw_input("Are you pre-qualified for this loan? ".lower())
+    if QUALIFIED not in ['yes', 'y', 'no', 'n']:
         print "Sorry, please answer 'yes' or 'no'. "
     else:
         break
@@ -91,7 +91,7 @@ else:
         LOAN = False
         R = 1
 
-TOTAL = int(round(Decimal(PRINCIPAL * ((1 + R/12)**(12 * YEARS))),0))
+TOTAL = int(round(Decimal(PRINCIPAL * ((1 + R/12)**(12 * YEARS)))))
 
 REPORT = """
 Loan Report for: {0}

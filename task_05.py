@@ -35,7 +35,7 @@ while True:
 
 TOTAL = True
 
-if PRINCIPAL < 200000:
+if 0 < PRINCIPAL < 200000:
     if YEARS < 16:
         if "y" in QUALIFIED:
             R = .0363

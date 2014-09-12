@@ -54,7 +54,7 @@ if 0 < PRINCIPAL < 200000:
     else:
         TOTAL = None
         R = 1
-elif PRINCIPAL < 1000000:
+elif 200000 <= PRINCIPAL < 1000000:
     if YEARS < 16:
         if "y" in QUALIFIED:
             R = .0302

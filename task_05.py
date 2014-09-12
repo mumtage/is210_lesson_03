@@ -74,7 +74,7 @@ elif PRINCIPAL < 1000000:
     else:
         TOTAL = None
         R = 1
-else:
+elif PRINCIPAL >= 1000000:
     if YEARS < 16:
         if "y" in QUALIFIED:
             R = .0205
@@ -90,6 +90,8 @@ else:
     else:
         TOTAL = None
         R = 1
+else:
+    TOTAL = None
 
 if TOTAL:
     TOTAL = int(round(PRINCIPAL * (1 + (Decimal('{0}'.format(R))/12))**(12 * YEARS)))

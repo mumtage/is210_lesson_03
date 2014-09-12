@@ -12,7 +12,7 @@ while True:
                           "(the amount being borrowed)? ")
     try:
         PRINCIPAL = int(PRINCIPAL)
-    except:
+    except ValueError:
         print "Please enter the amount as a integer..."
     else:
         break
@@ -21,7 +21,7 @@ while True:
     YEARS = raw_input("For how many years is this loan being borrowed? ")
     try:
         YEARS = int(YEARS)
-    except:
+    except ValueError:
         print "Please enter in the form of an integer..."
     else:
         break
@@ -94,7 +94,8 @@ else:
     TOTAL = None
 
 if TOTAL:
-    TOTAL = int(round(PRINCIPAL * (1 + (Decimal('{0}'.format(R))/12))**(12 * YEARS)))
+    TOTAL = int(
+        round(PRINCIPAL * (1 + (Decimal('{0}'.format(R))/12))**(12 * YEARS)))
 
 
 REPORT = """

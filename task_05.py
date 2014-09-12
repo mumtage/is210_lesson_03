@@ -92,7 +92,7 @@ else:
         R = 1
 
 if TOTAL:
-    TOTAL = int(round(PRINCIPAL * ((1 + Decimal(R/12))**(12 * YEARS))))
+    TOTAL = int(round(PRINCIPAL * (1 + (Decimal('{0}'.format(R))/12))**(12 * YEARS)))
 
 
 REPORT = """
